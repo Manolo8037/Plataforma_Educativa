@@ -1,0 +1,346 @@
+/*** Estilos generales ***/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Comic Sans MS', 'Bubblegum Sans', cursive, sans-serif;
+}
+
+body {
+    background-color: #f9f7ff;
+    background-image: linear-gradient(135deg, #f9f7ff 0%, #e8f7ff 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.panel-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/*** Encabezado ***/
+header {
+    background-color: #4ECDC4;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 5px dashed #FF6B6B;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.logo h1 {
+    font-size: 2rem;
+    margin-bottom: 5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.subtitle {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.user-welcome {
+    text-align: right;
+}
+
+.user-welcome span {
+    display: block;
+    font-size: 1.1rem;
+}
+
+.user-points {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 5px;
+    margin-top: 5px;
+}
+
+.user-points img {
+    width: 20px;
+    height: 20px;
+}
+
+.btn-logout {
+    background-color: #FF6B6B;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 50px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-logout:hover {
+    background-color: #e05555;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/*** Navegación de categorías ***/
+.categories-nav {
+    display: flex;
+    justify-content: center;
+    background-color: #f8f8f8;
+    padding: 15px;
+    border-bottom: 2px solid #eee;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.category-btn {
+    background-color: #e0e0e0;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.category-btn:hover {
+    background-color: #d0d0d0;
+    transform: translateY(-3px);
+}
+
+.category-btn.active {
+    background-color: #4ECDC4;
+    color: white;
+    box-shadow: 0 4px 10px rgba(78, 205, 196, 0.3);
+}
+
+/*** Sección de actividades ***/
+.activities-section {
+    padding: 20px;
+}
+
+.activities-section h2 {
+    color: #4ECDC4;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.activities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.activity-card {
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid #f0f0f0;
+}
+
+.activity-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    border-color: #4ECDC4;
+}
+
+.activity-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.activity-content {
+    padding: 15px;
+}
+
+.activity-title {
+    font-size: 1.2rem;
+    color: #5a189a;
+    margin-bottom: 8px;
+}
+
+.activity-description {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 15px;
+    min-height: 40px;
+}
+
+.activity-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.stars {
+    color: #FFD166;
+    font-size: 1rem;
+}
+
+.difficulty {
+    background-color: #f0f0f0;
+    padding: 4px 10px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #555;
+}
+
+.difficulty-easy {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.difficulty-medium {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+/*** Modales ***/
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    animation: popIn 0.5s ease;
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.modal-content h2 {
+    color: #4ECDC4;
+    margin-bottom: 15px;
+    font-size: 2rem;
+}
+
+.modal-content p {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #4ECDC4;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #3dbeb5;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/*** Responsive ***/
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .user-info {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .user-welcome {
+        text-align: center;
+    }
+    
+    .activities-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .logo img {
+        margin-bottom: 10px;
+    }
+    
+    .category-btn {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+    
+    .activities-section h2 {
+        font-size: 1.5rem;
+    }
+}

@@ -1,0 +1,411 @@
+/*** Estilos generales ***/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Comic Sans MS', 'Bubblegum Sans', cursive, sans-serif;
+}
+
+body {
+    background-color: #f9f7ff;
+    background-image: linear-gradient(135deg, #f9f7ff 0%, #e8f7ff 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1000px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+}
+
+/*** Encabezado ***/
+header {
+    background-color: #4ECDC4;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 5px dashed #FF6B6B;
+    position: relative;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-bottom: 15px;
+}
+
+.header-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-back {
+    background-color: #FF6B6B;
+    color: white;
+}
+
+.btn-back:hover {
+    background-color: #e05555;
+}
+
+.btn-save {
+    background-color: #45B7D1;
+    color: white;
+}
+
+.btn-save:hover {
+    background-color: #3a9cb3;
+}
+
+/*** Navegación de actividades ***/
+.activities-nav {
+    display: flex;
+    justify-content: center;
+    background-color: #f8f8f8;
+    padding: 15px;
+    border-bottom: 2px solid #eee;
+}
+
+.activity-btn {
+    background-color: #e0e0e0;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.activity-btn:hover {
+    background-color: #d0d0d0;
+    transform: translateY(-3px);
+}
+
+.activity-btn.active {
+    background-color: #4ECDC4;
+    color: white;
+    box-shadow: 0 4px 10px rgba(78, 205, 196, 0.3);
+}
+
+/*** Contenedor de actividades ***/
+.activities-container {
+    padding: 20px;
+}
+
+.activity-section {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.activity-section.active {
+    display: block;
+}
+
+.activity-section h2 {
+    text-align: center;
+    color: #4ECDC4;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+.instruction {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    color: #555;
+}
+
+/*** Sección de Letras ***/
+.letters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 15px;
+    padding: 20px;
+}
+
+.letter-card {
+    height: 80px;
+    background-color: #FF6B6B;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.letter-card:hover {
+    transform: scale(1.1);
+    background-color: #e05555;
+}
+
+/*** Secciones de ejercicios ***/
+.exercises-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.exercise-container {
+    background-color: #f8f8f8;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.exercise-image {
+    max-width: 200px;
+    max-height: 150px;
+    margin: 0 auto 15px;
+    display: block;
+    border-radius: 10px;
+}
+
+.clue-text {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.options-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.letter-option {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: #45B7D1;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.letter-option:hover {
+    background-color: #3a9cb3;
+    transform: scale(1.05);
+}
+
+.letter-option.correct {
+    background-color: #4CAF50;
+}
+
+.letter-option.incorrect {
+    background-color: #e74c3c;
+}
+
+.word-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.btn-verify {
+    background-color: #4ECDC4;
+    color: white;
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+}
+
+/*** Modales ***/
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    animation: popIn 0.5s ease;
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.modal-content h2 {
+    color: #4ECDC4;
+    margin-bottom: 15px;
+    font-size: 2rem;
+}
+
+.modal-content p {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.celebration-animation {
+    margin: 20px 0;
+}
+
+.celebration-animation img {
+    max-width: 200px;
+}
+
+#instructions-content {
+    text-align: left;
+    margin: 20px 0;
+}
+
+#instructions-content p {
+    margin-bottom: 10px;
+}
+
+#instructions-content ul {
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+#instructions-content li {
+    margin-bottom: 8px;
+}
+
+/*** Animaciones ***/
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.bounce {
+    animation: bounce 0.5s ease;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-20px);}
+    60% {transform: translateY(-10px);}
+}
+
+/*** Responsive ***/
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .activity-btn {
+        padding: 8px 15px;
+        font-size: 1rem;
+        margin: 0 5px;
+    }
+    
+    .letters-grid {
+        grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    }
+    
+    .letter-card {
+        height: 60px;
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .activities-nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .activity-btn {
+        width: 100%;
+        margin: 0;
+    }
+    
+    .header-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}

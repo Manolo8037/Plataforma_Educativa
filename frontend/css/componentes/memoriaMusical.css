@@ -1,0 +1,549 @@
+/* ===== ESTILOS GENERALES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Comic Sans MS', 'Bubblegum Sans', cursive, sans-serif;
+}
+
+body {
+    background-color: #f9f7ff;
+    background-image: linear-gradient(135deg, #f9f7ff 0%, #e8f7ff 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1000px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+}
+
+/* ===== ENCABEZADO ===== */
+header {
+    background-color: #8e44ad;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 5px dashed #f1c40f;
+    position: relative;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-bottom: 15px;
+}
+.header-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+/*** Navegación de actividades ***/
+.activities-nav {
+    display: flex;
+    justify-content: center;
+    background-color: #f8f8f8;
+    padding: 15px;
+    border-bottom: 2px solid #eee;
+}
+
+.activity-btn {
+    background-color: #e0e0e0;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.activity-btn:hover {
+    background-color: #d0d0d0;
+    transform: translateY(-3px);
+}
+
+.activity-btn.active {
+    background-color: #4ECDC4;
+    color: white;
+    box-shadow: 0 4px 10px rgba(78, 205, 196, 0.3);
+}
+
+/*** Contenedor de actividades ***/
+.activities-container {
+    padding: 20px;
+}
+
+.activity-section {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.activity-section.active {
+    display: block;
+}
+
+.activity-section h2 {
+    text-align: center;
+    color: #4ECDC4;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+.instruction {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    color: #555;
+}
+
+/* ===== SECCIÓN APRENDER ===== */
+.sounds-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.sound-card {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 3px solid #f1c40f;
+}
+
+.sound-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.sound-icon {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    color: #8e44ad;
+}
+
+.sound-card h3 {
+    color: #8e44ad;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+/* ===== JUEGO DE IDENTIFICACIÓN ===== */
+.identify-game {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.game-status {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+#play-sound-btn {
+    background-color: #8e44ad;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    margin: 20px auto;
+    display: block;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#play-sound-btn:hover {
+    background-color: #7d3c98;
+    transform: translateY(-3px);
+}
+
+.options-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.color-option {
+    background-color: #8e44ad;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.color-option:hover {
+    background-color: #7d3c98;
+    transform: translateY(-3px);
+}
+
+.feedback-message {
+    height: 50px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.feedback-message.correct {
+    color: #27ae60;
+    animation: bounce 0.5s;
+}
+
+.feedback-message.incorrect {
+    color: #e74c3c;
+    animation: shake 0.5s;
+}
+
+.feedback-message.almost {
+    color: #f39c12;
+}
+
+/* ===== JUEGO DE ORDENAR SONIDOS ===== */
+.sequence-game {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.sequence-instructions {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sequence-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.correct-sequence {
+    display: none; /* Oculto para el jugador */
+}
+
+.player-sequence {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    min-height: 100px;
+    border: 2px dashed #8e44ad;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.sound-item {
+    background-color: #8e44ad;
+    color: white;
+    border-radius: 8px;
+    padding: 10px 15px;
+    cursor: grab;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.sound-item:hover {
+    background-color: #7d3c98;
+    transform: translateY(-3px);
+}
+
+.sound-item:active {
+    cursor: grabbing;
+}
+
+.sound-item.dragging {
+    opacity: 0.5;
+}
+
+#play-sequence-btn, #check-sequence-btn {
+    background-color: #8e44ad;
+    color: white;
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#play-sequence-btn:hover, #check-sequence-btn:hover {
+    background-color: #7d3c98;
+}
+
+#check-sequence-btn {
+    background-color: #27ae60;
+}
+
+#check-sequence-btn:hover {
+    background-color: #219653;
+}
+
+.sound-icon-small {
+    font-size: 1.2rem;
+}
+
+/* ===== JUEGO DE MEMORAMA ===== */
+.memory-container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.memory-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.memory-card {
+    height: 120px;
+    background-color: #8e44ad;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.memory-card:hover {
+    transform: scale(1.05);
+}
+
+.memory-card.flipped {
+    transform: rotateY(180deg);
+}
+
+.memory-card.matched {
+    background-color: #27ae60;
+    cursor: default;
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-front {
+    background-color: #8e44ad;
+    transform: rotateY(0deg);
+}
+
+.card-front::after {
+    content: "?";
+    font-size: 3rem;
+    color: white;
+    font-weight: bold;
+}
+
+.card-back {
+    background-color: white;
+    transform: rotateY(180deg);
+}
+
+.card-back .sound-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+/* ===== MODALES ===== */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    animation: popIn 0.5s ease;
+}
+
+.modal-content h2 {
+    color: #8e44ad;
+    margin-bottom: 15px;
+    font-size: 2rem;
+}
+
+.modal-content p {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.celebration-animation {
+    margin: 20px 0;
+}
+
+.celebration-animation img {
+    max-width: 200px;
+}
+
+#instructions-content {
+    text-align: left;
+    margin: 20px 0;
+}
+
+#instructions-content p {
+    margin-bottom: 10px;
+}
+
+#instructions-content ul {
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+#instructions-content li {
+    margin-bottom: 8px;
+}
+
+.btn {
+    background-color: #8e44ad;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #7d3c98;
+    transform: translateY(-3px);
+}
+
+/* ===== ANIMACIONES ===== */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-20px); }
+    60% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .activity-btn {
+        padding: 8px 15px;
+        font-size: 1rem;
+        margin: 0 5px;
+    }
+    
+    .sounds-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .memory-board {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .options-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .activities-nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .activity-btn {
+        width: 100%;
+        margin: 0;
+    }
+    
+    .sounds-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .memory-board {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

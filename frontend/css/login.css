@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url('https://image.slidesdocs.com/responsive-images/background/beautiful-night-twinkling-stars-powerpoint-background_b95edff7cd__655_368.jpg') no-repeat center center/cover;
+}
+
+.login-container {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border-radius: 12px;
+  padding: 30px 40px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  color: #fff;
+  width: 400px;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    width: 90%;
+  }
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+.input-box {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 12px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  outline: none;
+  color: #fff;
+  font-size: 16px;
+}
+
+.input-box input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.btn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(45deg, #6a11cb, #2575fc);
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: bold;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.btn:hover {
+  background: linear-gradient(45deg, #2575fc, #6a11cb);
+  transform: scale(1.05);
+}
+
+p {
+  margin-top: 15px;
+  margin-bottom: 25px;
+}
+
+.extra-links {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.extra-links a {
+  color: #fff;
+  text-decoration: none;
+  margin-bottom: 25px;
+}
+
+.extra-links a:hover {
+  text-decoration: underline;
+}

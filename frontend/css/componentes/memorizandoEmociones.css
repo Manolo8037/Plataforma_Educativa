@@ -1,0 +1,573 @@
+/*** Estilos generales ***/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Comic Sans MS', 'Bubblegum Sans', cursive, sans-serif;
+}
+
+body {
+    background-color: #f9f7ff;
+    background-image: linear-gradient(135deg, #f9f7ff 0%, #e8f7ff 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1000px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+}
+
+/*** Encabezado ***/
+header {
+    background-color: #8e44ad;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 5px dashed #f1c40f;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/*** Navegación de actividades ***/
+.activities-nav {
+    display: flex;
+    justify-content: center;
+    background-color: #f8f8f8;
+    padding: 15px;
+    border-bottom: 2px solid #eee;
+}
+
+.activity-btn {
+    background-color: #e0e0e0;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.activity-btn:hover {
+    background-color: #d0d0d0;
+    transform: translateY(-3px);
+}
+
+.activity-btn.active {
+    background-color: #8e44ad;
+    color: white;
+    box-shadow: 0 4px 10px rgba(142, 68, 173, 0.3);
+}
+
+/*** Contenedor de actividades ***/
+.activities-container {
+    padding: 20px;
+}
+
+.activity-section {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.activity-section.active {
+    display: block;
+}
+
+.activity-section h2 {
+    text-align: center;
+    color: #8e44ad;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+/*** Sección de Aprendizaje ***/
+.emotions-carousel {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.carousel-container {
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.emotion-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    .emotion-card {
+        flex-direction: row;
+    }
+}
+
+.emotion-image {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f8f8;
+}
+
+.emotion-image img {
+    max-width: 200px;
+    max-height: 200px;
+    transition: transform 0.3s ease;
+}
+
+.emotion-image img:hover {
+    transform: scale(1.05);
+}
+
+.emotion-info {
+    flex: 1;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.emotion-info h3 {
+    font-size: 2rem;
+    color: #8e44ad;
+    margin-bottom: 15px;
+}
+
+.emotion-info p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.sound-btn {
+    align-self: flex-start;
+    background-color: #f1c40f;
+    color: #333;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.sound-btn:hover {
+    background-color: #e6b800;
+    transform: translateY(-3px);
+}
+
+.sound-btn:active {
+    transform: translateY(1px);
+}
+
+.carousel-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.carousel-btn {
+    background-color: #8e44ad;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.carousel-btn:hover {
+    background-color: #7d3c98;
+    transform: scale(1.1);
+}
+
+.emotion-dots {
+    display: flex;
+    justify-content: center;
+    margin: 0 20px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background-color: #8e44ad;
+    transform: scale(1.2);
+}
+
+/*** Sección de Identificación ***/
+.identify-game {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.game-status {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.emotion-display {
+    width: 250px;
+    height: 250px;
+    background-color: #f8f8f8;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.emotion-display img {
+    max-width: 80%;
+    max-height: 80%;
+    transition: transform 0.3s ease;
+}
+
+.options-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.emotion-option {
+    background-color: #8e44ad;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.emotion-option:hover {
+    background-color: #7d3c98;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.emotion-option:active {
+    transform: translateY(1px);
+}
+
+.feedback-message {
+    height: 50px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.feedback-message.correct {
+    color: #27ae60;
+}
+
+.feedback-message.incorrect {
+    color: #e74c3c;
+}
+
+/*** Sección de Memorama ***/
+.memorama-container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.memorama-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.memory-card {
+    height: 120px;
+    background-color: #8e44ad;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.memory-card:hover {
+    transform: scale(1.05);
+}
+
+.memory-card.flipped {
+    transform: rotateY(180deg);
+}
+
+.memory-card.matched {
+    background-color: #27ae60;
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-front {
+    background-color: #8e44ad;
+    transform: rotateY(0deg);
+}
+
+.card-front::after {
+    content: "?";
+    font-size: 3rem;
+    color: white;
+    font-weight: bold;
+}
+
+.card-back {
+    background-color: white;
+    transform: rotateY(180deg);
+    padding: 10px;
+}
+
+.card-back img {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.game-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn {
+    background-color: #8e44ad;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #7d3c98;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+/*** Modales ***/
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    animation: popIn 0.5s ease;
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.modal-content h2 {
+    color: #8e44ad;
+    margin-bottom: 15px;
+    font-size: 2rem;
+}
+
+.modal-content p {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.celebration-animation {
+    margin: 20px 0;
+}
+
+.celebration-animation img {
+    max-width: 200px;
+}
+
+#instructions-content {
+    text-align: left;
+    margin: 20px 0;
+}
+
+#instructions-content p {
+    margin-bottom: 10px;
+}
+
+#instructions-content ul {
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+#instructions-content li {
+    margin-bottom: 8px;
+}
+
+/*** Animaciones ***/
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.bounce {
+    animation: bounce 0.5s ease;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-20px);}
+    60% {transform: translateY(-10px);}
+}
+
+/*** Responsive ***/
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .activity-btn {
+        padding: 8px 15px;
+        font-size: 1rem;
+        margin: 0 5px;
+    }
+    
+    .emotion-info h3 {
+        font-size: 1.8rem;
+    }
+    
+    .emotion-info p {
+        font-size: 1.1rem;
+    }
+    
+    .memorama-board {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .activities-nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .activity-btn {
+        width: 100%;
+        margin: 0;
+    }
+    
+    .options-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .memorama-board {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

@@ -1,0 +1,361 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+body {
+    background-color: #f0f9ff;
+    background-image: linear-gradient(to bottom, #f0f9ff, #d8f1ff);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.game-container {
+    width: 100%;
+    max-width: 900px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+}
+
+/* Cabecera del juego */
+.game-header {
+    background-color: #6a5acd;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    border-bottom: 5px dashed #ffcc00;
+}
+
+.game-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.score-panel {
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Área principal del juego */
+.game-area {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Sección de imagen */
+.image-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.image-section img {
+    max-width: 250px;
+    max-height: 250px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.image-section img:hover {
+    transform: scale(1.05);
+}
+
+/* Sección de construcción de palabras */
+.word-building-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.word-target {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    min-height: 70px;
+}
+
+.letter-space {
+    width: 60px;
+    height: 60px;
+    border: 3px dashed #6a5acd;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f8ff;
+    transition: all 0.2s ease;
+}
+
+.letter-space.highlight {
+    background-color: #e6e6fa;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(106, 90, 205, 0.5);
+}
+
+.letters-bank {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.letter-tile {
+    width: 50px;
+    height: 50px;
+    background-color: #ffcc00;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+    cursor: grab;
+    box-shadow: 0 4px 0 #e6b800;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.letter-tile:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 0 #e6b800;
+}
+
+.letter-tile:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #e6b800;
+}
+
+.placed-letter {
+    width: 55px;
+    height: 55px;
+    background-color: #6a5acd;
+    color: white;
+    box-shadow: 0 4px 0 #5949b8;
+    cursor: pointer;
+}
+
+.hint-letter {
+    background-color: #ff6b6b;
+    box-shadow: 0 4px 0 #ff5252;
+}
+
+/* Controles del juego */
+.game-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-top: 2px solid #e0e0e0;
+}
+
+.btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-check {
+    background-color: #4caf50;
+    color: white;
+}
+
+.btn-hint {
+    background-color: #ff9800;
+    color: white;
+}
+
+.btn-next {
+    background-color: #2196f3;
+    color: white;
+}
+
+.btn:disabled {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Modal de celebración */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    animation: popIn 0.5s ease;
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.modal-content h2 {
+    color: #6a5acd;
+    margin-bottom: 15px;
+    font-size: 2rem;
+}
+
+.modal-content p {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.celebration-animation {
+    margin: 20px 0;
+}
+
+.celebration-animation img {
+    max-width: 200px;
+}
+
+/* Animaciones */
+.shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+/* Estilos para instrucciones */
+#instructionsModal .modal-content {
+    max-width: 600px;
+}
+
+#instructionsModal ol {
+    text-align: left;
+    margin: 20px 0;
+    padding-left: 30px;
+}
+
+#instructionsModal li {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .game-header h1 {
+        font-size: 2rem;
+    }
+    
+    .letter-space {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .letter-tile {
+        width: 45px;
+        height: 45px;
+        font-size: 1.5rem;
+    }
+    
+    .placed-letter {
+        width: 48px;
+        height: 48px;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .game-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .score-panel {
+        font-size: 1rem;
+    }
+    
+    .letter-space {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .letter-tile {
+        width: 38px;
+        height: 38px;
+        font-size: 1.3rem;
+    }
+    
+    .placed-letter {
+        width: 38px;
+        height: 38px;
+    }
+    
+    .game-controls {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+}
