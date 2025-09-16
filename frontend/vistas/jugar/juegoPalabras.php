@@ -17,6 +17,7 @@ if (!isset($_SESSION["usuario"])) {
     <div class="game-container">
         <!-- Cabecera del juego -->
         <header class="game-header">
+            <a href="../panelPrincipal.php" class="back-btn">← Regresar</a>
             <h1>¡Arma Palabras!</h1>
             <div class="score-panel">
                 <div id="score">Puntos: <span>0</span></div>
@@ -47,6 +48,7 @@ if (!isset($_SESSION["usuario"])) {
         <div class="game-controls">
             <button id="checkButton" class="btn btn-check">Comprobar</button>
             <button id="hintButton" class="btn btn-hint">Pista</button>
+            <button id="saveButton" class="btn btn-save">Guardar Progreso</button>
             <button id="nextButton" class="btn btn-next" disabled>Siguiente</button>
         </div>
 
@@ -56,7 +58,7 @@ if (!isset($_SESSION["usuario"])) {
                 <h2>¡Muy bien!</h2>
                 <p id="celebrationMessage">Has formado la palabra correctamente.</p>
                 <div class="celebration-animation">
-                    <img src="/plataformaEducativa/frontend/assets/img/celebration.gif" alt="Celebración">
+                    <img src="../../imagenes/emociones/celebracion.gif" alt="Celebración">
                 </div>
                 <button id="continueButton" class="btn">Continuar</button>
             </div>

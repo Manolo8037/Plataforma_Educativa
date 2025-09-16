@@ -5,7 +5,6 @@ if (!isset($_SESSION["usuario"])) {
     exit();
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -15,38 +14,26 @@ if (!isset($_SESSION["usuario"])) {
     <link rel="stylesheet" href="../../css/componentes/atrapaFruta.css">
 </head>
 <body>
-    <div class="game-wrapper">
-        <!-- Pantalla de inicio -->
-        <div id="startScreen" class="screen">
-            <h1>Atrapa Fruta</h1>
-            <p>¡Atrapa las frutas con la canasta y aprende sus nombres!</p>
-            <button id="startButton" class="btn">Comenzar Juego</button>
-        </div>
-
-        <!-- Contenedor principal del juego -->
-        <div id="gameContainer" class="game-container">
-            <!-- Canasta para atrapar frutas -->
-            <div id="basket" class="basket"></div>
-            
-            <!-- Elemento para mostrar el nombre de la fruta -->
-            <div id="fruitName" class="fruit-name"></div>
-            
-            <!-- Panel de información -->
-            <div class="info-panel">
-                <div id="score-container">Puntos: <span id="score">0</span></div>
-                <div id="lives">Vidas: <span class="heart">❤</span><span class="heart">❤</span><span class="heart">❤</span></div>
-            </div>
-        </div>
-
-        <!-- Pantalla de fin de juego -->
-        <div id="gameOver" class="screen" style="display: none;">
-            <h2>¡Juego Terminado!</h2>
-            <p>Tu puntuación final: <span id="finalScore">0</span></p>
-            <button id="restartButton" class="btn">Jugar de Nuevo</button>
-        </div>
+    <div id="startScreen" class="start-screen">
+        <h1>Atrapa Fruta</h1>
+        <p>¡Mueve la canasta con el ratón para atrapar las frutas!</p>
+        <button id="startButton">Comenzar Juego</button>
     </div>
 
-    <!-- Scripts -->
+    <div id="gameContainer" class="game-container" style="display: none;">
+        <div class="score-container">Puntos: <span id="score">0</span></div>
+        <div class="lives">Vidas: <span id="lives-hearts">❤❤❤</span></div>
+        
+        <div id="basket" class="basket"></div>
+        <div id="fruitName" class="fruit-name"></div>
+    </div>
+
+    <div id="gameOverScreen" class="game-over" style="display: none;">
+        <h2>¡Juego Terminado!</h2>
+        <p>Tu puntuación final: <span id="finalScore">0</span></p>
+        <button id="restartButton">Jugar de Nuevo</button>
+    </div>
+
     <script src="../../javaScript/componentes/atrapaFruta.js"></script>
 </body>
 </html>

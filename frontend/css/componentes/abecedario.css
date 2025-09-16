@@ -409,3 +409,205 @@ header h1 {
         margin-bottom: 10px;
     }
 }
+/* ========================================================
+   ESTILOS MEJORADOS PARA LA SECCIÓN DE SÍLABAS
+   ======================================================== */
+
+/* --- Selector de niveles (NUEVO) --- */
+.level-selector {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.level-btn {
+    padding: 8px 16px;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #e0e0e0;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.level-btn:hover {
+    background-color: #d0d0d0;
+}
+
+.level-btn.active {
+    background-color: #4ECDC4;
+    color: white;
+}
+
+
+/* --- Selector de consonantes (MODIFICADO) --- */
+.syllable-explorer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+    align-items: center;
+}
+
+.consonant-selector {
+    display: grid;
+    /* Ajustamos para que quepan menos botones por fila, ya que son más grandes */
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 15px;
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-radius: 10px;
+    width: 100%;
+}
+
+/* --- Botón de consonante (MODIFICADO para parecerse al abecedario) --- */
+.consonant-btn {
+    height: 80px; /* Mismo alto que las letras del abecedario */
+    background-color: #FF6B6B; /* Mismo color rojo */
+    color: white;
+    font-size: 2rem; /* Misma fuente grande */
+    font-weight: bold;
+    border-radius: 10px; /* Mismas esquinas */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Misma sombra */
+}
+
+.consonant-btn:hover {
+    transform: scale(1.1);
+    background-color: #e05555;
+}
+
+.consonant-btn.active {
+    background-color: #4ECDC4; /* Mantenemos el color activo para saber cuál está seleccionada */
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(78, 205, 196, 0.5);
+}
+
+/* Nuevo contenedor para la "fórmula" de la sílaba */
+.syllable-display {
+    flex-grow: 1;
+    width: 100%;
+    background-color: #f8f8f8;
+    border-radius: 15px;
+    padding: 20px;
+    min-height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilos para la fórmula (ej: M + A = MA) */
+.syllable-formula {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #555;
+}
+
+.syllable-card {
+    width: 90px;
+    height: 90px;
+    background-color: #45B7D1;
+    color: white;
+    font-size: 2.5rem;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.syllable-card:hover {
+    transform: translateY(-5px);
+    background-color: #3a9cb3;
+}
+/* ========================================================
+   ESTILOS PARA EL JUEGO "FORMA PALABRAS CON SÍLABAS"
+   ======================================================== */
+
+/* Contenedor para el banco de sílabas y el objetivo */
+.syllable-game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* El área donde se deben colocar las sílabas (LA BANDEJA SUPERIOR) */
+.syllable-target {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Permite que los cuadros pasen a la siguiente línea si no caben */
+    gap: 10px;
+    background-color: #e9ecef;
+    padding: 15px;
+    border-radius: 10px;
+    min-height: 80px;
+    width: 100%;
+}
+
+/* LOS CUADROS PUNTEADOS DONDE SE SUELTAN LAS SÍLABAS */
+.syllable-space {
+    width: 90px;
+    height: 60px;
+    border: 3px dashed #4ECDC4; /* Borde más grueso para que se vea bien */
+    border-radius: 8px;
+    background-color: white;
+    transition: background-color 0.2s ease;
+    display: flex; /* Para centrar la sílaba que se suelte adentro */
+    align-items: center;
+    justify-content: center;
+}
+
+/* Efecto visual al arrastrar una sílaba sobre el cuadro */
+.syllable-space.highlight {
+    background-color: #d4f8f5;
+    transform: scale(1.05);
+}
+
+/* El banco de sílabas disponibles (LA BANDEJA INFERIOR) */
+.syllable-bank {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-radius: 10px;
+    width: 100%;
+    min-height: 80px;
+}
+
+/* Las fichas de sílabas que se pueden arrastrar */
+.syllable-tile {
+    padding: 15px 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: #feca57; /* Color amarillo */
+    color: #343a40;
+    border-radius: 8px;
+    cursor: grab;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+    user-select: none; /* Evita que el texto se seleccione al arrastrar */
+}
+
+.syllable-tile:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.syllable-tile:active {
+    cursor: grabbing;
+}
